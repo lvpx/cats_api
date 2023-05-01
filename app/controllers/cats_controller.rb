@@ -1,5 +1,5 @@
 class CatsController < ApplicationController
-  before_action :set_cat, only: %i[show edit update destroy]
+  before_action :set_cat, only: %i[show edit update destroy image]
 
   def index
     cats = Cat.all
@@ -37,6 +37,10 @@ class CatsController < ApplicationController
         { rel: 'delete', href: cat_url(@cat), method: 'DELETE' }
       ]
     }
+  end
+
+  def image
+    send_data @cat.image.download, type: @cat.image.content_type, disposition: 'inline'
   end
 
   def update
