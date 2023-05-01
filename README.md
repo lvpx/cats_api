@@ -9,6 +9,37 @@ This is a simple REST API for uploading, deleting, fetching, and listing cat ima
 3. Set up the database: `rails db:setup`
 4. Run the server: `rails server`
 
+### Docker
+
+#### Prerequisites
+
+- Docker
+
+#### Build and Run
+
+1. Clone the repository:
+
+   ```
+   git clone <repository-url>
+   cd <repository-folder>
+   ```
+
+2. Build the Docker image:
+
+   ```
+   docker build -t <image-name> .
+   ```
+
+3. Run the Docker container:
+
+   ```
+   docker run -p <port>:<port> -d --name <container-name> <image-name>
+   ```
+
+   Replace `<port>` with the desired port number, `<image-name>` with the name you gave to the Docker image in step 2, and `<container-name>` with a name of your choice for the container.
+
+4. Access the application in your web browser by visiting `http://localhost:<port>`
+
 ## Usage
 
 ### Upload a cat image
