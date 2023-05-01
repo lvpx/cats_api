@@ -13,7 +13,7 @@ This is a simple REST API for uploading, deleting, fetching, and listing cat ima
 
 ### Upload a cat image
 
-```json
+```http
 POST /cats
 
 Headers:
@@ -36,7 +36,7 @@ Content-Type: application/json
 
 ### Fetch a cat image
 
-```json
+```http
 GET /cats/:id/image
 
 Response:
@@ -50,7 +50,7 @@ Content-Length: 150812
 
 ### Delete a cat image
 
-```json
+```http
 DELETE /cats/:id
 
 Response:
@@ -59,7 +59,7 @@ HTTP/1.1 204 No Content
 
 ### List all cat images
 
-```json
+```http
 GET /cats
 
 Response:
@@ -78,6 +78,29 @@ Content-Type: application/json
     "image_url": "http://localhost:3000/cats/2/image"
   }
 ]
+```
+
+### Update a cat image
+
+```http
+PATCH /cats/:id
+
+Headers:
+Content-Type: application/json
+
+Parameters:
+name: string (optional)
+image: file (optional)
+
+Response:
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Cato Updated",
+  "image_url": "http://localhost:3000/cats/1/image"
+}
 ```
 
 ## Testing
